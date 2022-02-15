@@ -1,0 +1,7 @@
+author: mfnalex
+win-threshold: 3
+questions: # ArrayList<Map>
+  - question: "What's the only official source to get a running Spigot .jar file?"
+    answers:
+      - "BuildTools"
+      - "Build Tools"
