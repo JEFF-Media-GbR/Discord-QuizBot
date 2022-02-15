@@ -26,6 +26,7 @@ public enum Command {
         String[] split = message.split(" ");
         if(split.length==1) return HELP;
         for(Command command : values()) {
+            if(command.getName() == null) continue;
             if(command.name.toLowerCase(Locale.ROOT).equals(split[1].toLowerCase(Locale.ROOT))) {
                 return command;
             }

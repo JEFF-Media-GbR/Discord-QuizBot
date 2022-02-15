@@ -12,12 +12,13 @@ import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
 import java.io.File;
+import java.util.HashMap;
 import java.util.Map;
 
 public class GameManager extends ListenerAdapter {
 
     private static final QuizBot main = QuizBot.getInstance();
-    @Getter private Map<String,Game> currentGames;
+    @Getter private Map<String,Game> currentGames = new HashMap<>();
 
     @Override
     public void onMessageReceived(@NotNull MessageReceivedEvent event) {
@@ -36,7 +37,7 @@ public class GameManager extends ListenerAdapter {
                     if(split.length < 3) {
                         sendErrorMessage(channel);
                     } else {
-                        startGame(event.getMember(), split[2], channelId);
+                        startGame(event.getMember(), split[2], channelId,0);
                     }
                 }
                 default -> sendErrorMessage(channel);
@@ -66,8 +67,8 @@ public class GameManager extends ListenerAdapter {
         }
         try {
             Game game = startGame(channelId, category, threshold);
-            currentGames.put()
-            Messages.sendEmbed(channelId, Color.YELLOW,"New quiz started!",String.format("%s started a new quiz: %s",mem);
+            currentGames.put(channelId, game);
+            Messages.sendEmbed(channelId, Color.YELLOW,"New quiz started!",String.format("%s started a new quiz: %s",member.getNickname(),category));
         } catch (CategoryNotFoundException e) {
             Messages.sendError(channelId, "Could not start quiz",String.format("Silly %s! There is no quiz called %s",member.getNickname(),category));
         }
