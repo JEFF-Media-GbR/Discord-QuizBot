@@ -4,6 +4,7 @@ import com.jeff_media.quizbot.QuizBot;
 import org.yaml.snakeyaml.Yaml;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 import java.util.Map;
@@ -25,7 +26,7 @@ public class FileUtils {
 
     public static Map<String,Object> loadYaml(File file) {
         Yaml yaml = new Yaml();
-        try(InputStreamReader reader = new InputStreamReader(new FileInputStream(file))) {
+        try(InputStreamReader reader = new InputStreamReader(new FileInputStream(file), StandardCharsets.UTF_8)) {
             return yaml.load(reader);
         } catch(IOException exception) {
             throw new RuntimeException("Could not load YAML file \"" + file.getPath() + "\"",exception);

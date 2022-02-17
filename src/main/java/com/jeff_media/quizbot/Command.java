@@ -7,7 +7,8 @@ import java.util.Locale;
 
 public enum Command {
 
-    START("start"),
+    START("start","<category>"),
+    LIST("list"),
     STOP("stop"),
     HELP("help"),
     ERROR(null);
@@ -15,9 +16,15 @@ public enum Command {
     private static final String PREFIX = "-quiz";
 
     @Getter private final String name;
+    @Getter private final String syntax;
+
+    Command(String name, String syntax) {
+        this.name = name;
+        this.syntax = syntax;
+    }
 
     Command(String name) {
-        this.name=name;
+        this(name,null);
     }
 
     @Nullable

@@ -12,23 +12,23 @@ import java.util.Map;
 public class Question {
 
     @Getter private final String question;
-    @Getter private final List<String> correctAnswers;
+    @Getter private final List<?> correctAnswers;
 
     public Question(Map<String,Object> map) {
         this.question = (String) map.get("question");
-        this.correctAnswers = (List<String>) map.get("answers");
+        this.correctAnswers = (List<?>) map.get("answers");
     }
 
     public boolean isCorrect(String input) {
         input = input.toLowerCase(Locale.ROOT);
-        for(String answer : correctAnswers) {
-            if(input.contains(answer.toLowerCase(Locale.ROOT))) return true;
+        for(Object answer : correctAnswers) {
+            if(input.contains(String.valueOf(answer).toLowerCase(Locale.ROOT))) return true;
         }
         return false;
     }
 
     public String getCorrectAnswer() {
-        return correctAnswers.get(0);
+        return String.valueOf(correctAnswers.get(0));
     }
 
 }
