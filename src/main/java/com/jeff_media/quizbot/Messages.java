@@ -36,7 +36,7 @@ public class Messages {
         sendEmbed(channel, Color.GREEN, "Correct!", String.format("That's correct, %s!",author.getAsMention()));
     }
 
-    public static void sendWin(String channel, Game game) {
+    public static void sendWin(String channel, Game game, User author) {
         Map.Entry<User,List<Question>> winningEntry = game.getAnsweredQuestions().entrySet().stream().max(new Comparator<Map.Entry<User, List<Question>>>() {
             @Override
             public int compare(Map.Entry<User, List<Question>> o1, Map.Entry<User, List<Question>> o2) {
