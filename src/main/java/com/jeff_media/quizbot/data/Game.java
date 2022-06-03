@@ -123,7 +123,7 @@ public class Game {
             if (!isFinished()) {
                 sendNextQuestion();
             } else {
-                Messages.sendWin(channel, this);
+                Messages.sendWin(channel, this, user);
             }
         } else {
             System.out.println("Wrong answer, correct would have been: " + question.getCorrectAnswer());
