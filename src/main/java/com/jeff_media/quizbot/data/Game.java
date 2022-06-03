@@ -148,4 +148,10 @@ public class Game {
     public void stop() {
         if (task != null) task.cancel(true);
     }
+
+    public User getWinner() {
+        Map.Entry<User,List<Question>> winner = answeredQuestions.entrySet().stream().max(Comparator.comparingInt(o -> o.getValue().size())).orElse(null);
+        if(winner == null) return null;
+        return winner.getKey();
+    }
 }

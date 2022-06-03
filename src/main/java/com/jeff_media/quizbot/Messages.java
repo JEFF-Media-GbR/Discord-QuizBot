@@ -46,6 +46,7 @@ public class Messages {
         if(winningEntry != null) {
 
         }
+        User winner = game.getWinner();
         sendEmbed(channel, Color.GREEN,"GG " + author.getAsMention(), author.getAsMention() + " has won this quiz!");
     }
 }

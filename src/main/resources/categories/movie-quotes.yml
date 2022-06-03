@@ -1,0 +1,11 @@
+author: mfnalex
+win-threshold: 3
+questions: # ArrayList<Map>
+  - question: "> \"I hate manure!\""
+    answers:
+      - "\"Biff\" in \"Back to the Future\""
+      - "Back to the Future"
+  - question: "> \"1.21 Gigawatts!?!\""
+    answers:
+      - "\"Doc Brown\" in \"Back to the Future\""
+      - "Back to the Future"
